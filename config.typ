@@ -29,7 +29,7 @@
 #let campus_name = "INSTITUT TEKNOLOGI PLN – JAKARTA"
 #let faculty_of_study = "FAKULTAS TELEMATIKA ENERGI"
 #let program_of_study = "Teknik Informatika"
-#let degree = "Sarjana Terapan Komputer (S. Tr. Kom.)"
+#let degree = "Sarjana Komputer (S. Kom.)"
 
 #let lang = "id"
 #let hyphenate = true

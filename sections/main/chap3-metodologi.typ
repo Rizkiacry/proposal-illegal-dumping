@@ -1,41 +1,71 @@
-= METODOLOGI
+= METODOLOGI PROYEK
 
-== Tahapan Penelitian dan Pengembangan
+== Jenis Proyek
 
-Metodologi yang digunakan dalam pengembangan Sistem Pelaporan dan Penanganan Sampah Liar ini adalah #strong[Software Development Life Cycle (SDLC) dengan pendekatan Agile (Scrum)]. Pendekatan Agile dipilih karena memungkinkan iterasi cepat berdasarkan *feedback* langsung dari pengguna (warga dan petugas DLH), yang sangat krusial untuk produk berbasis adopsi massal.
+Metodologi yang digunakan dalam perancangan dan pengembangan Sistem Pelaporan dan Penanganan Sampah Liar ini adalah #strong[Software Development Life Cycle (SDLC) dengan pendekatan Agile Scrum]. Pendekatan ini dipilih karena memberikan fleksibilitas tinggi bagi tim pengembang untuk melakukan penyesuaian fungsionalitas produk berdasarkan umpan balik berkala dari warga dan petugas lapangan secara iteratif.
 
-Berikut tahapan detailnya:
+== Alat dan Bahan
 
-=== Proses Awal (Discovery & Requirement Gathering)
+Proses pengembangan sistem ini membutuhkan dukungan beberapa spesifikasi perangkat keras dan perangkat lunak sebagai berikut:
 
-Melakukan wawancara mendalam dan Focus Group Discussion (FGD) dengan Dinas Lingkungan Hidup (DLH), lurah, dan tokoh masyarakat. Studi kelayakan teknis terhadap infrastruktur jaringan di wilayah sasaran dan regulasi data pemerintah.
+1. #strong[Perangkat Keras (Hardware)]:
+   - Laptop spesifikasi pengembangan (Processor Core i7, RAM 16GB, SSD 512GB) untuk server lokal dan *coding environment*.
+   - Smartphone Android dengan sensor GPS operasional untuk pengujian lapangan aplikasi mobile.
+2. #strong[Perangkat Lunak (Software)]:
+   - *Operating System*: macOS / Linux untuk server dev.
+   - *Frontend Development*: React Native (untuk aplikasi mobile lintas platform) dan ReactJS (untuk dashboard admin).
+   - *Backend & Database*: NodeJS (Express) dan PostgreSQL dengan ekstensi PostGIS untuk penyimpanan data spasial geografis.
+   - *Mapping API & Cloud*: Google Maps API (atau Mapbox API) untuk visualisasi spasial, dan Firebase Cloud Messaging (FCM) untuk notifikasi push.
+   - *Design Tools*: Figma untuk wireframe dan *high-fidelity prototyping*.
 
-*Output:* User Stories, Prioritas Fitur (MVP vs Nice-to-have).
+== Prosedur Pelaksanaan
 
-=== Pembuatan Prototype Awal (Low-Fidelity & High-Fidelity)
+Prosedur pelaksanaan proyek dibagi menjadi beberapa tahapan Scrum yang teratur sepanjang 6 bulan:
 
-Merancang alur pengguna (*user flow*) dan antarmuka (UI/UX) menggunakan tools seperti Figma. Fokus pada *friction reduction*: meminimalkan jumlah klik untuk *submit* laporan (idealnya < 3 langkah).
+1. #strong[Discovery & Requirement Gathering]: Tahap awal untuk mendefinisikan kebutuhan sistem melalui wawancara dengan pemangku kepentingan dan pembuatan *user stories*.
+2. #strong[Prototyping (Low-Fi & High-Fi)]: Pembuatan wireframe kasar dan desain UI/UX interaktif menggunakan Figma untuk mendesain alur pelaporan warga yang minim hambatan.
+3. #strong[Usability Testing]: Melakukan pengujian awal purwarupa figma kepada 15-20 orang calon pengguna guna memvalidasi aspek kemudahan penggunaan (*usability*).
+4. #strong[Iterasi Pengembangan (Sprint)]: Pembangunan kode backend API, database spasial, dan aplikasi frontend secara bertahap dalam siklus 2 mingguan.
+5. #strong[Beta Testing & Validasi]: Uji coba peluncuran terbatas sistem di 2 kecamatan prioritas untuk memvalidasi performa server dan alur penanganan di lapangan.
+6. #strong[Go-Live & Sosialisasi]: Peluncuran resmi sistem ke Google Play Store / App Store, sosialisasi ke warga, dan penyerahan dashboard monitoring ke dinas terkait.
 
-*Output:* Wireframe dan Prototype Klikable.
+== Teknik Pengumpulan Data
 
-=== Uji Coba Prototype (Usability Testing)
+Untuk menunjang analisis kebutuhan dan validasi sistem, digunakan beberapa teknik pengumpulan data berikut:
+1. #strong[Wawancara Terstruktur]: Dilakukan dengan pihak Dinas Lingkungan Hidup untuk memahami alur penanganan sampah liar konvensional dan kendala yang dihadapi.
+2. #strong[Focus Group Discussion (FGD)]: Dilakukan bersama perwakilan warga dan aparat kelurahan untuk memetakan kebiasaan pembuangan sampah dan ekspektasi mereka terhadap sistem baru.
+3. #strong[Usability Testing (UT)]: Dilakukan secara langsung dengan memandu responden menjalankan skenario pelaporan pada aplikasi untuk mengukur metrik *Task Success Rate* dan tingkat kepuasan pengguna.
 
-Melibatkan 15-20 orang warga dari berbagai demografi (usia, literasi digital) untuk menguji *prototype*. Mengukur *Task Success Rate* dan *Time-on-task*.
+== Jadwal dan Rencana Anggaran Biaya (RAB)
 
-*Output:* Laporan rekomendasi perbaikan UI/UX.
+=== Rencana Anggaran Biaya (RAB)
+Estimasi anggaran biaya pengembangan dihitung menggunakan metode #strong[Constructive Cost Model (COCOMO II)] untuk proyek kelas *Organic Mode* (tim terpusat, kebutuhan sistem terdefinisi dengan baik). Penyesuaian usaha (*effort*) menggunakan faktor pengali EAF (~1.15) karena kompleksitas pengolahan data spasial geografis.
 
-=== Revisi dan Penyempurnaan (Iterasi Pengembangan)
+#figure(
+  table(
+    columns: (auto, auto, auto),
+    [NO], [Jenis Pengeluaran], [Biaya (Rp)],
+    [1], [Biaya Pengembangan (SDM 45 Person-Months × Rp12.000.000)], [Rp540.000.000],
+    [2], [Biaya Operasional (Server Cloud AWS/GCP & Publikasi)], [Rp111.000.000],
+    [3], [Anggaran Insentif Gamifikasi (Reward Voucher UMKM)], [Rp100.000.000],
+    [], [#strong[Total Anggaran Biaya]], [#strong[Rp751.000.000]],
+  ),
+  caption: [Rencana anggaran biaya proyek],
+  kind: "tabel",
+)
 
-Tim *development* membangun sistem berbasis hasil uji coba (backend API, frontend mobile, database). Dilakukan *sprint review* setiap 2 minggu dengan *stakeholder*.
+=== Jadwal Kegiatan (Timeline 6 Bulan)
+Pelaksanaan proyek ini direncanakan selesai dalam durasi 6 bulan (24 minggu) dengan rincian jadwal kegiatan sebagai berikut:
 
-=== Pembuatan Sistem Lebih Detail (Full Development)
-
-Integrasi fitur lengkap: Dashboard Analytics, Modul Gamifikasi (backend logic poin), Notifikasi Push (Firebase/FCM), dan Gateway Payment (untuk *redemption* voucher). Pengujian keamanan (*penetration testing*) untuk melindungi data pribadi warga.
-
-=== Uji Coba Sistem yang Diperbarui (Beta Testing / Pilot Project)
-
-Meluncurkan sistem secara terbatas di 2 kecamatan prioritas selama 1 bulan. Menggunakan data *real* untuk *stress testing* server dan validasi alur kerja petugas lapangan.
-
-=== Penyelenggaraan dan Implementasi Sistem (Go-Live & Scaling)
-
-Peluncuran resmi (*Soft Launch* dan *Hard Launch*). Pelatihan intensif kepada seluruh staf DLH dan sosialisasi masif ke masyarakat melalui Kader Lingkungan dan sekolah. Monitoring berkelanjutan dan *maintenance* pasca-*go-live*.
+#figure(
+  table(
+    columns: (auto, auto, auto),
+    [Minggu Ke-], [Fase Kegiatan], [Keterangan Keterlibatan Tim],
+    [1 - 6], [Riset, Perancangan, dan Prototyping], [Fokus pada pengumpulan data, desain UI/UX, dan arsitektur database (5 Personel)],
+    [7 - 16], [Pengembangan Inti Sistem (Backend, Mobile, Web)], [Implementasi kode, integrasi LBS, gamifikasi, dan dashboard GIS (7 Personel)],
+    [17 - 22], [Pengujian Sistem, Uji Coba Beta, dan Pelatihan], [Usability testing lapangan di 2 kecamatan dan pelatihan dinas (5 Personel)],
+    [23 - 24], [Peluncuran Resmi (Go-Live) dan Pemeliharaan], [Deploy server produksi, sosialisasi aplikasi, dan hypercare (4 Personel)],
+  ),
+  caption: [Jadwal pelaksanaan kegiatan proyek],
+  kind: "tabel",
+)

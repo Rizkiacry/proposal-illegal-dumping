@@ -1,8 +1,12 @@
 #import "../../config.typ": *
 
+#include "halaman_persetujuan.typ"
+#include "abstrak.typ"
+
+#pagebreak()
 = Kata Pengantar
 
-Puji syukur kehadirat Tuhan Yang Maha Esa atas segala rahmat dan karunia-Nya, penulis dapat menyelesaikan proposal yang berjudul "#title_txt" tepat pada waktunya. Proposal ini disusun sebagai salah satu syarat untuk menyelesaikan jenjang pendidikan Diploma IV pada #program_of_study #campus_name.
+Puji syukur kehadirat Tuhan Yang Maha Esa atas segala rahmat dan karunia-Nya, penulis dapat menyelesaikan proposal yang berjudul "#title_txt" tepat pada waktunya. Proposal ini disusun sebagai salah satu syarat untuk menyelesaikan jenjang pendidikan Strata Satu (S1) pada #program_of_study #campus_name.
 
 Penulis mengucapkan terima kasih kepada:
 
@@ -16,7 +20,7 @@ Penulis menyadari bahwa proposal ini masih memiliki kekurangan. Oleh karena itu,
 
 #align(end)[
   #pad(bottom: 4em, top: 2em)[Jakarta, #date_of_release]
-  #author_names.at(1)
+  Penulis
 ]
 
 = Daftar Isi

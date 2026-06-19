@@ -128,7 +128,6 @@
 #include "sections/main/chap1-pendahuluan.typ"
 #include "sections/main/chap2-tinjauan-pustaka.typ"
 #include "sections/main/chap3-metodologi.typ"
-#include "sections/main/chap4-biaya-jadwal.typ"
 
 #set heading(numbering: none)
 #show heading.where(

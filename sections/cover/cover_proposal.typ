@@ -19,8 +19,13 @@
     \
     #text(1.2em, weight: "bold")[#upper[#title_block]]
     \
+    #v(0.5em)
+    #text(0.9em, style: "italic")[
+      Diajukan untuk Memenuhi Sebagian Persyaratan Guna Memperoleh Gelar\
+      #degree
+    ]
     \
-    \
+    #v(0.5em)
     #image("../../media/logo_itpln.png", width: 2in)
     \
     \

@@ -1,49 +1,50 @@
 = TINJAUAN PUSTAKA
 
-== Lingkup Sistem
+== Landasan Teori
 
-Sistem ini akan beroperasi sebagai platform *full-stack* yang terdiri dari aplikasi mobile (Android/iOS) bagi masyarakat dan dashboard web berbasis Geographic Information System (GIS) bagi admin pemerintah. Arsitektur sistem mengadopsi model three-tier untuk memastikan keamanan dan skalabilitas #cite(<s6>). Fitur utama yang dikembangkan meliputi:
+=== Location-Based Services (LBS)
+Location-Based Services (LBS) adalah layanan berbasis teknologi informasi yang mengintegrasikan kemampuan pengolahan data dengan informasi lokasi geografis pengguna secara real-time #cite(<s6>) . Pada sistem ini, LBS digunakan untuk mengidentifikasi koordinat lintang dan bujur secara otomatis menggunakan GPS pada perangkat mobile ketika warga memotret tumpukan sampah liar. Hal ini memastikan bahwa laporan yang masuk memiliki data lokasi presisi tinggi untuk memudahkan penemuan lokasi pembersihan oleh petugas lapangan.
 
-+ #strong[Pelaporan Sampah Liar (Citizen Reporting):] Warga dapat mengajukan laporan dengan mengunggah foto, geolokasi GPS otomatis, kategori sampah (organik, anorganik, B3), deskripsi, dan estimasi volume sampah.
-+ #strong[Pelacakan Status Real-time:] Warga menerima notifikasi push saat laporan "Diterima", "Sedang Diproses", "Selesai", atau "Ditolak" beserta bukti foto *after-cleaning* dari petugas.
-+ #strong[Notifikasi Otomatis & Gamifikasi:] Sistem menerapkan mekanisme *gamifikasi* untuk meningkatkan *user engagement*. Warga akan mendapatkan poin loyalitas setiap kali melaporkan, yang dapat ditukar dengan voucher makanan, diskon retribusi sampah, atau produk daur ulang #cite(<s2>).
-+ #strong[Dashboard Monitoring GIS:] Peta interaktif real-time yang menampilkan *heat map* titik-titik rawan sampah liar, memungkinkan pemerintah melihat tren laporan bulanan, waktu rata-rata penyelesaian, dan kinerja petugas lapangan.
-+ #strong[Modul Edukasi & Direktori TPS:] Integrasi artikel edukasi pengurangan sampah (reduce/reuse/recycle) dan peta digital lokasi TPS terdekat #cite(<s1>).
+=== Gamifikasi
+Gamifikasi didefinisikan sebagai penggunaan elemen-elemen desain game (seperti poin, lencana, papan peringkat, dan reward) dalam konteks non-game untuk meningkatkan keterlibatan, loyalitas, dan motivasi pengguna #cite(<s2>) . Untuk mengatasi masalah rendahnya partisipasi aktif warga dalam melaporkan masalah lingkungan, sistem ini mengintegrasikan mekanisme gamifikasi di mana setiap laporan valid yang terverifikasi akan memberikan poin loyalitas kepada pelapor. Poin tersebut dapat dikumpulkan dan ditukarkan dengan insentif nyata, seperti voucher belanja digital atau potongan retribusi sampah daerah.
 
-== Sasaran Pengguna
+=== Geographic Information System (GIS)
+Geographic Information System (GIS) adalah sistem berbasis komputer yang digunakan untuk menangkap, menyimpan, memeriksa, dan menampilkan data yang terkait dengan posisi-posisi di permukaan bumi. Dalam proyek ini, teknologi GIS digunakan untuk membangun dashboard visualisasi bagi dinas kebersihan kota. Dashboard ini akan menampilkan pemetaan spasial dari tumpukan sampah liar, sebaran lokasi dengan kepadatan laporan tinggi (*heat map*), serta status penanganan laporan secara temporal untuk memfasilitasi pengambilan keputusan yang lebih cepat dan objektif.
 
-Sistem ini dirancang untuk melayani dua segmen pengguna utama:
+=== Metodologi Agile Scrum
+Agile Scrum adalah kerangka kerja (*framework*) pengembangan produk yang bersifat iteratif dan inkremental untuk mengelola pengembangan sistem yang kompleks. Scrum membagi proses pengembangan ke dalam siklus-siklus kecil yang disebut *Sprint* (biasanya berdurasi 2 minggu). Metodologi ini diterapkan untuk memastikan bahwa pengembangan fitur sistem dapat beradaptasi secara cepat terhadap umpan balik dari pengguna (warga dan dinas lingkungan hidup) sepanjang 6 bulan masa pengembangan.
 
-+ #strong[Warga Kota (Citizen Reporter):] Segmen utama sebagai pengguna aktif yang berperan sebagai mata dan telinga pemerintah di lapangan. Membutuhkan antarmuka yang intuitif, ringan (low data consumption), dan memberikan insentif psikologis maupun material.
-+ #strong[Pemerintah Kota (Admin DLH & Petugas Lapangan):] Segmen operasional yang membutuhkan *tools* manajemen kasus (*case management*). Admin memerlukan otoritas untuk memverifikasi, menugaskan ke petugas wilayah, memvalidasi hasil pembersihan, serta mengelola konten edukasi.
+== Penelitian Terkait
 
-== Benchmarking
+Untuk memposisikan kontribusi dan keunggulan sistem yang dikembangkan, dilakukan studi banding (*benchmarking*) terhadap empat platform sejenis yang telah dipublikasikan atau diimplementasikan sebelumnya:
 
-Untuk memastikan relevansi dan efektivitas, sistem ini dikembangkan dengan melakukan studi banding (*benchmarking*) mendalam terhadap platform global dan lokal yang telah terbukti berhasil:
-
-+ #strong[FixMyStreet (Global Standard):] Platform open-source asal Inggris. Unggul dalam integrasi peta (map-based reporting) dan transparansi status publik. Namun, sistem ini bersifat umum dan belum memiliki fitur spesifik pengelolaan sampah maupun gamifikasi #cite(<s7>).
-+ #strong[Silampah (Kota Semarang):] Aplikasi pelaporan sampah resmi Dinas Lingkungan Hidup Semarang. Berhasil menunjukkan adopsi teknologi oleh pemerintah daerah. Namun, rendahnya jumlah aduan karena kurangnya fitur insentif dan edukasi #cite(<s8>).
-+ #strong[Simpelsi (Kota Nganjuk):] Sistem Pelaporan Sampah Ilegal oleh Politeknik Negeri Jember. Menawarkan fitur mobile reporting, direktori TPS, dan dashboard admin yang komprehensif #cite(<s1>).
++ #strong[FixMyStreet (Karya MySociety, Inggris)] #cite(<s7>) : Merupakan platform pelaporan masalah lingkungan perkotaan berskala global. Platform ini sangat unggul dalam kemudahan visualisasi peta pelaporan. Namun, kelemahannya terletak pada sifatnya yang sangat umum (generalist) dan tidak memiliki modul gamifikasi untuk retensi pengguna serta alur kerja pembersihan yang spesifik untuk sampah.
++ #strong[Silampah (Dinas Lingkungan Hidup Kota Semarang)] #cite(<s8>) : Aplikasi pelaporan sampah tingkat kota yang dikelola langsung oleh pemerintah daerah. Meskipun memiliki legitimasi institusional yang kuat, aplikasi ini kurang mendapat adopsi masif dari masyarakat karena antarmuka yang kurang ramah pengguna dan tidak adanya sistem insentif psikologis maupun material bagi warga.
++ #strong[Simpelsi (Politeknik Negeri Jember)] #cite(<s1>) : Sistem pelaporan sampah ilegal yang mengintegrasikan aplikasi mobile reporting dengan direktori lokasi TPS legal serta dashboard dinas. Simpelsi memberikan kerangka struktur data pelaporan yang sangat baik, namun belum menyentuh aspek gamifikasi dan notifikasi real-time interaktif antara petugas dan pelapor.
++ #strong[LaporSampah.id (Universitas Dinamika Surabaya)] #cite(<s2>) : Merupakan rancangan sistem pelaporan partisipatif yang menitikberatkan pada aspek gamifikasi. Warga dapat mengumpulkan poin dari aduan yang divalidasi dan menukarkannya dengan voucher digital. Sistem ini menjadi acuan utama perancangan modul gamifikasi pada proyek ini.
 
 #figure(
-  image("../../media/fig3_simpelsi.jpg", width: 80%),
+  image("../../media/fig3_simpelsi.jpg", width: 85%),
   caption: [Poster sistem Simpelsi yang menampilkan fitur mobile dan website admin #cite(<s1>)],
   kind: "gambar",
 )
 
-+ #strong[LaporSampah.id (Universitas Dinamika Surabaya):] Prototype inovatif dengan elemen gamifikasi dan partisipatif. Pengguna bisa berkomentar, mengumpulkan poin, dan menukarkannya dengan voucher. Ini adalah *benchmark* utama untuk strategi retensi pengguna #cite(<s2>).
-
 #figure(
-  image("../../media/fig4_gamifikasi.png", width: 80%),
+  image("../../media/fig4_gamifikasi.png", width: 85%),
   caption: [Desain sistem LaporSampah.id dengan fitur gamifikasi (reward points) #cite(<s2>)],
   kind: "gambar",
 )
 
-Proyek ini akan mengadopsi kemudahan geolokasi FixMyStreet, legitimasi institusional Silampah, struktur data Simpelsi, dan strategi engagement LaporSampah.id, sambil menyesuaikannya dengan regulasi dan kebiasaan lokal.
+== Kerangka Teoritis
 
-== Indikator Keberhasilan (Key Performance Indicators)
+Proyek ini dibangun berdasarkan kerangka berpikir sistematis yang menghubungkan partisipasi publik dengan penegakan operasional pemerintah daerah. Alur kerja sistem dirancang dalam siklus tertutup (*closed-loop system*) untuk memastikan setiap aduan warga ditangani secara tuntas dan transparan:
 
-+ #strong[Adopsi Pengguna:] Minimal #strong[15.000 laporan valid per tahun] dari berbagai wilayah administrasi kota.
-+ #strong[Efisiensi Waktu:] Minimal #strong[85% laporan dapat diselesaikan dalam waktu maksimal 7 hari kalender] sejak laporan diverifikasi.
-+ #strong[Kepuasan Pengguna (CSAT):] Skor #strong[4.2/5.0] pada survei triwulanan.
-+ #strong[Reduksi Titik Rawan:] Penurunan #strong[20% pengulangan laporan (re-reporting)] di lokasi yang sama dalam 3 bulan.
+1. #strong[Fase Input (Citizen Sensor)]: Warga mendeteksi adanya tumpukan sampah liar, lalu mengambil foto dan mengirimkan laporan melalui aplikasi mobile. Sistem LBS secara otomatis melampirkan koordinat lokasi.
+2. #strong[Fase Proses (Government Workflow)]:
+   - Admin Dinas Lingkungan Hidup memverifikasi kevalidan laporan melalui Dashboard GIS.
+   - Jika laporan valid, sistem menugaskan petugas kebersihan wilayah terdekat.
+   - Petugas lapangan menuju lokasi koordinat GPS, membersihkan sampah liar, dan mengunggah foto bukti hasil pembersihan (*after-cleaning*).
+3. #strong[Fase Output (Validation & Reward)]:
+   - Sistem mengirimkan notifikasi *after-cleaning* beserta foto bukti penyelesaian kepada pelapor asli.
+   - Poin gamifikasi secara otomatis ditambahkan ke akun pelapor setelah status laporan berubah menjadi "Selesai".
+4. #strong[Fase Outcome (Data-Driven Policy)]: Dashboard GIS mengakumulasikan data laporan spasial dan temporal untuk menganalisis tren wilayah rawan dumping (*heat map*) guna pencegahan preventif jangka panjang.
